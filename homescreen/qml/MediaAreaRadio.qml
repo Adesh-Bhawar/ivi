@@ -20,5 +20,5 @@ import QtQuick 2.2
 Image {
     width: 1080
     height: 216
-    source: './images/Utility_Radio_Background-01.png'
+    source: 'qrc:/images/Utility_Radio_Background-01.png'
 }

@@ -21,7 +21,7 @@ import QtQuick.Controls 2.0
 
 Image {
     anchors.fill: parent
-    source: './images/TopSection_NoText_NoIcons-01.svg'
+    source: 'qrc:/images/TopSection_NoText_NoIcons-01.svg'
     //fillMode: Image.PreserveAspectCrop
     fillMode: Image.Stretch
 

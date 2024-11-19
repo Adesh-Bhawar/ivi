@@ -17,7 +17,7 @@
 
 import QtQuick 2.2
 import QtQuick.Controls 2.0
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 MouseArea {
     id: root
@@ -30,13 +30,13 @@ MouseArea {
         Image {
             id: inactiveIcon
             anchors.fill: parent
-            source: './images/Shortcut/%1.svg'.arg(root.name.toLowerCase())
+            source: 'qrc:/images/Shortcut/%1.svg'.arg(root.name.toLowerCase())
             fillMode: Image.PreserveAspectFit
         }
         Image {
             id: activeIcon
             anchors.fill: parent
-            source: './images/Shortcut/%1_active.svg'.arg(root.name.toLowerCase())
+            source: 'qrc:/images/Shortcut/%1_active.svg'.arg(root.name.toLowerCase())
             fillMode: Image.PreserveAspectFit
             opacity: 0.0
         }

@@ -10,6 +10,6 @@ Window {
 
     Image {
         anchors.fill: parent
-        source: './images/AGL_HMI_Blue_Background_NoCar-01.png'
+        source: 'qrc:/images/AGL_HMI_Blue_Background_NoCar-01.png'
     }
 }

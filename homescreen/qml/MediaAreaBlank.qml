@@ -23,7 +23,7 @@ import MasterVolume 1.0
 
 Image {
     anchors.fill: parent
-    source: './images/Utility_Logo_Background-01.svg'
+    source: 'qrc:/images/Utility_Logo_Background-01.svg'
     property bool displayVolume: false;
 
     MouseArea {
@@ -41,7 +41,7 @@ Image {
     Image {
         id: logo_image
         anchors.centerIn: parent
-        source: './images/Utility_Logo_Grey-01.svg'
+        source: 'qrc:/images/Utility_Logo_Grey-01.svg'
     }
 
     Timer {

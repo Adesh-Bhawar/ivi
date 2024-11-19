@@ -15,7 +15,7 @@ Item {
         id: chromeBarImage
 
         anchors.top: parent.top
-        source: "./images/SpeechChrome/bar.png"
+        source: "qrc:/images/SpeechChrome/bar.png"
 
         Behavior on x {
             NumberAnimation { duration: 250 }
@@ -34,7 +34,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: parent.width / 128
         anchors.verticalCenter: parent.verticalCenter
-        source: agentName === "Alexa" ? "./images/SpeechChrome/push_to_talk_alexa.png" : "./images/SpeechChrome/push_to_talk.svg"
+        source: agentName === "Alexa" ? "qrc:/images/SpeechChrome/push_to_talk_alexa.png" : "qrc:/images/SpeechChrome/push_to_talk.svg"
 
         MouseArea {
             anchors.fill: parent
@@ -55,7 +55,7 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: parent.width / 128
         anchors.verticalCenter: parent.verticalCenter
-        source: agentName === "Alexa" ? "./images/SpeechChrome/push_to_talk_alexa.png" : "./images/SpeechChrome/push_to_talk.svg"
+        source: agentName === "Alexa" ? "qrc:/images/SpeechChrome/push_to_talk_alexa.png" : "qrc:/images/SpeechChrome/push_to_talk.svg"
 
         MouseArea {
             anchors.fill: parent

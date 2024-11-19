@@ -22,7 +22,7 @@ import QtQuick.Controls 2.0
 Image {
     width: 1080
     height: 216
-    source: './images/Utility_Music_Background-01.png'
+    source: 'qrc:/images/Utility_Music_Background-01.png'
 
     ColumnLayout {
         anchors.fill: parent
@@ -33,7 +33,7 @@ Image {
             Layout.preferredHeight: 107
             spacing: 10
             Image {
-                source: './images/MediaMusic/AlbumArtwork.png'
+                source: 'qrc:/images/MediaMusic/AlbumArtwork.png'
                 width: 105.298
                 height: 110.179
                 fillMode: Image.PreserveAspectFit
@@ -51,13 +51,13 @@ Image {
             Layout.fillHeight: true
             Layout.preferredHeight: 107
             Image {
-                source: './images/MediaPlayer/AGL_MediaPlayer_BackArrow.png'
+                source: 'qrc:/images/MediaPlayer/AGL_MediaPlayer_BackArrow.png'
             }
             Image {
-                source: './images/MediaPlayer/AGL_MediaPlayer_Player_Pause.png'
+                source: 'qrc:/images/MediaPlayer/AGL_MediaPlayer_Player_Pause.png'
             }
             Image {
-                source: './images/MediaPlayer/AGL_MediaPlayer_ForwardArrow.png'
+                source: 'qrc:/images/MediaPlayer/AGL_MediaPlayer_ForwardArrow.png'
             }
 
             ProgressBar {
@@ -71,10 +71,10 @@ Image {
                 font.pixelSize: 20
             }
             Image {
-                source: './images/MediaPlayer/AGL_MediaPlayer_Shuffle_Active.png'
+                source: 'qrc:/images/MediaPlayer/AGL_MediaPlayer_Shuffle_Active.png'
             }
             Image {
-                source: './images/MediaPlayer/AGL_MediaPlayer_Shuffle_Active.png'
+                source: 'qrc:/images/MediaPlayer/AGL_MediaPlayer_Shuffle_Active.png'
             }
             ProgressBar {
                 Layout.fillWidth: true

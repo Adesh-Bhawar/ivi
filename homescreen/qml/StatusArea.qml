@@ -47,7 +47,7 @@ Item {
                 icon = "WeatherIcons_Rain-01.png"
             }
 
-            condition_item.source = icon ? './images/Weather/' + icon : ''
+            condition_item.source = icon ? 'qrc:/images/Weather/' + icon : ''
         }
 
         onTemperatureChanged: {
@@ -99,7 +99,7 @@ Item {
                     Layout.preferredHeight: 20
                     Image {
                         id: condition_item
-                        source: './images/Weather/WeatherIcons_Rain-01.png'
+                        source: 'qrc:/images/Weather/WeatherIcons_Rain-01.png'
                     }
                     Text {
                         id: temperature_item
@@ -122,7 +122,7 @@ Item {
                 id: bt_icon
                 Layout.preferredWidth: 77
                 Layout.preferredHeight: 73
-                source: connStatus ? './images/Status/HMI_Status_Bluetooth_On-01.png' : './images/Status/HMI_Status_Bluetooth_Inactive-01.png'
+                source: connStatus ? 'qrc:/images/Status/HMI_Status_Bluetooth_On-01.png' : 'qrc:/images/Status/HMI_Status_Bluetooth_Inactive-01.png'
                 fillMode: Image.PreserveAspectFit
                 property string deviceName: "none"
                 property bool connStatus: false

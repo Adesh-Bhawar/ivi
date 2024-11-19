@@ -29,5 +29,5 @@ project (
     ],
 )
 
-qt5 = import('qt5')
+qt = import('qt6')
 subdir('homescreen')

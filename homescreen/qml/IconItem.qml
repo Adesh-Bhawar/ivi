@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 
 Item {
     id: main
@@ -23,7 +23,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             width: 220
             height: width
-            source: './images/%1_%2.svg'.arg(model.icon).arg(loc.pressed && (loc.index === model.index || loc.currentId === model.id) ? 'active' : 'inactive')
+            source: 'qrc:/images/%1_%2.svg'.arg(model.icon).arg(loc.pressed && (loc.index === model.index || loc.currentId === model.id) ? 'active' : 'inactive')
             antialiasing: item.state !== ''
 
             property string initial: model.name.substring(0,1).toUpperCase()

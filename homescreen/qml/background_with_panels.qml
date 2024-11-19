@@ -75,7 +75,7 @@ Window {
 
          Image {
              anchors.fill: parent
-             source: './images/TopSection_NoText_NoIcons-01.svg'
+             source: 'qrc:/images/TopSection_NoText_NoIcons-01.svg'
              //fillMode: Image.PreserveAspectCrop
              fillMode: Image.Stretch
 
@@ -104,7 +104,7 @@ Window {
              height: Screen.height - (2 * 216)
          Image {
              anchors.fill: parent
-             source: './images/AGL_HMI_Blue_Background_NoCar-01.png'
+             source: 'qrc:/images/AGL_HMI_Blue_Background_NoCar-01.png'
          }
 
         }
