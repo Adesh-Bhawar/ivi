@@ -65,7 +65,7 @@ Window {
 
          Connections {
              target: homescreenHandler
-             onShowNotification: {
+             function onShowNotification() {
                  notificationIcon.source = icon_path
                  notificationtext.text = text
                  notificationItem.visible = true
@@ -104,7 +104,7 @@ Window {
              height: Screen.height - (2 * 216)
          Image {
              anchors.fill: parent
-             source: 'qrc:/images/AGL_HMI_Blue_Background_NoCar-01.png'
+             source: 'qrc:/images/AGL_HMI_Blue_Background_NoCar-NoPanels.png'
          }
 
         }

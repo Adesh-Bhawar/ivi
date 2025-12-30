@@ -2,7 +2,7 @@
 /*
  * Copyright (C) 2016, 2017 Mentor Graphics Development (Deutschland) GmbH
  * Copyright (c) 2017, 2018 TOYOTA MOTOR CORPORATION
- * Copyright (c) 2022 Konsulko Group
+ * Copyright (c) 2022,2025 Konsulko Group
  * Copyright (c) 2023 Collabora, Ltd.
  */
 
@@ -17,6 +17,7 @@
 #include <QQuickWindow>
 #include <QTimer>
 #include <QScreen>
+#include <systemd/sd-daemon.h>
 
 #include <weather.h>
 #include <bluetooth.h>
@@ -254,7 +255,7 @@ load_agl_shell(QPlatformNativeInterface *native, QQmlApplicationEngine *engine,
 	qDebug() << "Setting homescreen to screen  " << screen->name();
 	agl_shell_set_background(agl_shell, bg, output);
 
-	// 216 is the width size of the panel
+	// 216 is the height of the panel
 	x = 0;
 	y = 216;
 
@@ -263,7 +264,7 @@ load_agl_shell(QPlatformNativeInterface *native, QQmlApplicationEngine *engine,
 
 	qDebug() << "Using custom rectangle " << width << "x" << height
 		<< "+" << x << "x" << y << " for activation";
-	qDebug() << "Panels should be embedded the background surface";
+	qDebug() << "Panels should be embedded in the background surface";
 
 #ifdef AGL_SHELL_SET_ACTIVATE_REGION_SINCE_VERSION
 	agl_shell_set_activate_region(agl_shell, output,
@@ -348,6 +349,7 @@ load_agl_shell_app(QPlatformNativeInterface *native, QQmlApplicationEngine *engi
 	QTimer::singleShot(500, [shell_data](){
 		qDebug() << "sending ready to compositor";
 		agl_shell_ready(shell_data.shell);
+		sd_notify(0, "READY=1");
 	});
 }
 

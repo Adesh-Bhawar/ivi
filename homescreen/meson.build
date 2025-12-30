@@ -6,7 +6,8 @@ dep_qtappfw = [
     dependency('qtappfw-network'),
     dependency('qtappfw-bt'),
     dependency('qtappfw-vehicle-signals'),
-    dependency('qtappfw-applauncher')
+    dependency('qtappfw-applauncher'),
+    dependency('libsystemd'),
 ]
 
 grpcpp_reflection_dep = cpp.find_library('grpc++_reflection')

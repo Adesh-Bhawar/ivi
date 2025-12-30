@@ -34,7 +34,7 @@ Item {
     Connections {
         target: weather
 
-        onConditionChanged: {
+        function onConditionChanged() {
             var icon = ''
 
             if (condition.indexOf("clouds") !== -1) {
@@ -129,7 +129,7 @@ Item {
                 Connections {
                     target: bluetooth
 
-                    onPowerChanged: {
+                    function onPowerChanged() {
                             bt_icon.connStatus = state
                     }
                 }
