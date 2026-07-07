@@ -26,7 +26,7 @@ Image {
     source: 'qrc:/images/Utility_Logo_Background-01.svg'
     property bool displayVolume: false;
 
-    MouseArea {
+   MouseArea {
         anchors.fill: parent
         function enableVolumeDisplay() {
             if (!displayVolume) {
@@ -37,6 +37,10 @@ Image {
         }
         onClicked: enableVolumeDisplay()
     }
+MouseArea {
+    anchors.fill: parent
+    enabled: false
+}
 
     Image {
         id: logo_image
@@ -71,7 +75,7 @@ Image {
         id: mv
         objectName: "mv"
         onVolumeChanged: slider.value = volume
-    }
+   }
 
     Item {
         id: master_volume

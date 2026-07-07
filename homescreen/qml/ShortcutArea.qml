@@ -23,6 +23,12 @@ import QtQuick.Window 2.2
 Item {
     id: root
 
+    // Orientation helper
+    property bool isLandscape: Screen.width > Screen.height
+
+    // Icon width per cell — in landscape shrink to fit the shorter bar
+    property int iconSize: isLandscape ? 110 : 160
+
     ListModel {
         id: applicationModel
         ListElement {
@@ -49,21 +55,49 @@ Item {
 
     property int pid: -1
 
-    RowLayout {
+    Flickable {
+        id: flickable
         anchors.fill: parent
-        spacing: 0
-        Repeater {
-            model: applicationModel
-            delegate: ShortcutIcon {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                name: model.name
-                active: model.name === launcher.current
-                onClicked: {
-                    console.log("Activating: " + model.appid)
-                    homescreenHandler.tapShortcut(model.appid)
+        clip: true
+
+        // Scroll horizontally in landscape, vertically in portrait
+        flickableDirection: root.isLandscape
+                            ? Flickable.HorizontalFlick
+                            : Flickable.VerticalFlick
+
+        // Content size drives scrollability
+        contentWidth: root.isLandscape
+                      ? applicationModel.count * root.iconSize
+                      : width
+        contentHeight: root.isLandscape
+                       ? height
+                       : applicationModel.count * root.iconSize
+
+        RowLayout {
+            id: iconRow
+            // Always lay icons out horizontally; in portrait they just stack
+            // wider than the bar so portrait still fills the row correctly
+            width: root.isLandscape
+                   ? applicationModel.count * root.iconSize
+                   : flickable.width
+            height: flickable.height
+            spacing: 0
+
+            Repeater {
+                model: applicationModel
+                delegate: ShortcutIcon {
+                    Layout.preferredWidth: root.isLandscape
+                                           ? root.iconSize
+                                           : flickable.width / applicationModel.count
+                    Layout.preferredHeight: flickable.height
+                    name: model.name
+                    active: model.name === launcher.current
+                    onClicked: {
+                        console.log("Activating: " + model.appid)
+                        homescreenHandler.tapShortcut(model.appid)
+                    }
                 }
             }
-       }
+        }
     }
 }

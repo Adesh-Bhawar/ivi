@@ -253,14 +253,23 @@ load_agl_shell(QPlatformNativeInterface *native, QQmlApplicationEngine *engine,
 
 	qDebug() << "Normal mode - with single surface";
 	qDebug() << "Setting homescreen to screen  " << screen->name();
-	agl_shell_set_background(agl_shell, bg, output);
+	//agl_shell_set_background(agl_shell, bg, output);
 
-	// 216 is the height of the panel
+agl_shell_set_background(agl_shell, bg, output);
+	// Must match background.barSize in background_with_panels.qml:
+	//   barSize: isLandscape ? 120 : 216
+	bool isLandscape = size.width() > size.height();
+	int32_t barSize = isLandscape ? 120 : 216;
 	x = 0;
-	y = 216;
-
+	y = barSize;
 	width  = size.width();
 	height = size.height() - (2 * y);
+	// 216 is the height of the panel
+	//x = 0;
+	//y = 216;
+
+	//width  = size.width();
+	//height = size.height() - (2 * y);
 
 	qDebug() << "Using custom rectangle " << width << "x" << height
 		<< "+" << x << "x" << y << " for activation";

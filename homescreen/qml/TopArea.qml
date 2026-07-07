@@ -20,10 +20,12 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 
 Image {
+    id: topAreaRoot
     anchors.fill: parent
     source: 'qrc:/images/TopSection_NoText_NoIcons-01.svg'
-    //fillMode: Image.PreserveAspectCrop
     fillMode: Image.Stretch
+
+    property bool isLandscape: Screen.width > Screen.height
 
     RowLayout {
         anchors.fill: parent
@@ -32,15 +34,20 @@ Image {
             id: shortcutArea
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredWidth: 775
+            Layout.preferredWidth: topAreaRoot.isLandscape
+                                   ? parent.width * 0.75
+                                   : 775
         }
         StatusArea {
             id: statusArea
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredWidth: 291
+            Layout.preferredWidth: topAreaRoot.isLandscape
+                                   ? parent.width * 0.25
+                                   : 291
         }
     }
+
 /*
     Timer {
         id: launching

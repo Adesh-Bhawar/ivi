@@ -50,12 +50,13 @@ MouseArea {
     Label {
         id: name
         width: root.width - 10
-        font.pixelSize: 15
-        font.letterSpacing: 5
-        // wrapMode: Text.WordWrap
+        font.pixelSize: root.width < 150 ? 11 : 15
+        font.letterSpacing: root.width < 150 ? 0 : 2
+        wrapMode: Text.NoWrap
+        elide: Text.ElideRight
+        clip: true
         anchors.centerIn: icon
         anchors.verticalCenterOffset: icon.height * 0.2
-        //anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
         color: "white"
         text: qsTr(model.name.toUpperCase())
